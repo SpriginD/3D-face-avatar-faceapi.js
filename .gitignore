@@ -1,0 +1,14 @@
+### vscode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+### pycache ###
+__pycache__/
+*.py[cod]
+### venv ###
+face_flask/*
+### images ###
+static/images
