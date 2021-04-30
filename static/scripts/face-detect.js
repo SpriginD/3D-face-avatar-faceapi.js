@@ -1,16 +1,16 @@
 const video = document.getElementById('video');
 
-var socket = io.connect('http://127.0.0.1:5000');
+var socket = io.connect('https://face-avatar.herokuapp.com');
 socket.on( 'connect', function() {
   console.log("SOCKET CONNECTED")
 })
 
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 Promise.all([
-    faceapi.nets.tinyFaceDetector.loadFromUri('http://127.0.0.1:5000/static/models/'),
-    faceapi.nets.faceLandmark68Net.loadFromUri('http://127.0.0.1:5000/static/models/'),
-    faceapi.nets.faceRecognitionNet.loadFromUri('http://127.0.0.1:5000/static/models/'),
-    faceapi.nets.faceExpressionNet.loadFromUri('http://127.0.0.1:5000/static/models/')
+    faceapi.nets.tinyFaceDetector.loadFromUri('https://face-avatar.herokuapp.com/static/models/'),
+    faceapi.nets.faceLandmark68Net.loadFromUri('https://face-avatar.herokuapp.com/static/models/'),
+    faceapi.nets.faceRecognitionNet.loadFromUri('https://face-avatar.herokuapp.com/static/models/'),
+    faceapi.nets.faceExpressionNet.loadFromUri('https://face-avatar.herokuapp.com/static/models/')
 ])
   .then(startVideo)
   .catch(err => console.error(err));
@@ -27,10 +27,10 @@ function startVideo() {
 }
 
 video.addEventListener('play', () => {
-  // const imgUrl1 = 'http://127.0.0.1:5000/static/images/Asude/1.jpg'
+  // const imgUrl1 = 'https://face-avatar.herokuapp.com/static/images/Asude/1.jpg'
   // const img1 = await faceapi.fetchImage(imgUrl1)
   
-  // const imgUrl2 = 'http://127.0.0.1:5000/static/images/Asude/1.jpg'
+  // const imgUrl2 = 'https://face-avatar.herokuapp.com/static/images/Asude/1.jpg'
   // const img2 = await faceapi.fetchImage(imgUrl2)
 
   const canvas = faceapi.createCanvasFromMedia(video);
@@ -62,7 +62,7 @@ video.addEventListener('play', () => {
     // const labeledFaceDescriptors = await Promise.all(
     //   labels.map(async label => {
     //       // fetch image data from urls and convert blob to HTMLImage element
-    //       const imgUrl = `http://127.0.0.1:5000/static/images/${label}/1.jpg`
+    //       const imgUrl = `https://face-avatar.herokuapp.com/static/images/${label}/1.jpg`
     //       const img = await faceapi.fetchImage(imgUrl)
   
     //       // detect the face with the highest score in the image and compute it's landmarks and face descriptor
